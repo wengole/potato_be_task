@@ -149,8 +149,4 @@ class DeleteTicketView(ProjectContextMixin, DeleteView):
     def get_success_url(self):
         return reverse("project-detail", kwargs={"project_id": self.kwargs['project_id']})
 
-    def get_context_data(self, **kwargs):
-        ctx = super(DeleteTicketView, self).get_context_data(**kwargs)
-        return ctx
-
 delete_ticket_view = login_required(DeleteTicketView.as_view())
