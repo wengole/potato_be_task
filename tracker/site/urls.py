@@ -8,7 +8,8 @@ from .views import (
 	create_ticket_view,
 	update_ticket_view,
 	project_list_view,
-	update_project_view
+	update_project_view,
+	delete_ticket_view,
 )
 
 
@@ -34,4 +35,9 @@ urlpatterns = patterns(
     url(
     	r'^projects/(?P<project_id>\d+)/$', project_view, name='project-detail'),
     url(r'^$', my_tickets_view, name='my-tickets'),
+	url(
+		r'^projects/(?P<project_id>\d+)/tickets/(?P<ticket_id>\d+)/delete$',
+		delete_ticket_view,
+		name='ticket-delete'
+	),
 )
