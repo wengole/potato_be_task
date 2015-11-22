@@ -17,6 +17,8 @@
 	<script src="{{ STATIC_URL }}js/modernizr.js"></script>
 	{% endif %}
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/tracker.css">
+    <link href="{{ STATIC_URL }}css/select2.min.css" rel="stylesheet"/>
+    <link href="{{ STATIC_URL }}css/select2-foundation.css" rel="stylesheet"/>
 </head>
 <body>
 		<!--[if lt IE 8]>
@@ -88,6 +90,7 @@
 
 			{% if debug %}
 			<script src="{{ STATIC_URL }}components/jquery/dist/jquery.min.js"></script>
+            <script src="{{ STATIC_URL }}js/select2.full.min.js"></script>
 			<script src="{{ STATIC_URL }}components/fastclick/lib/fastclick.js"></script>
 			<script src="{{ STATIC_URL }}components/foundation/js/foundation.min.js"></script>
 			<script src="{{ STATIC_URL }}js/app.js"></script>
