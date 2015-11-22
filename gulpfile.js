@@ -38,5 +38,9 @@ gulp.task('copy-js', function () {
 	gulp.src(baseSrcDir + '/components/modernizr/modernizr.js').pipe(gulp.dest(baseDestDir + '/js/'));
 });
 
-gulp.task('build', ['build-styles', 'copy-styles', 'copy-js', 'concat-js'])
+gulp.task('build', ['build-styles', 'copy-styles', 'copy-js', 'concat-js']);
+gulp.task('watch', function () {
+	gulp.watch(baseSrcDir + '/scss/*.scss', ['copy-styles'])
+});
+
 gulp.task('default', ['build-styles']);
