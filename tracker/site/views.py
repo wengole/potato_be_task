@@ -46,6 +46,14 @@ class ProjectListView(ListView):
     model = Project
     template_name = "site/project_list.html"
 
+    def get_context_data(self, **kwargs):
+        # This is not the best way of doing this, but it seems traditional relational references don't work with GAE
+        ctx = super(ProjectListView, self).get_context_data(**kwargs)
+        my_project_ids = set([x[0] for x in self.request.user.tickets.values_list('project')])
+        ctx['my_projects'] = Project.objects.filter(pk__in=my_project_ids)
+        ctx['other_projects'] = Project.objects.exclude(pk__in=my_project_ids)
+        return ctx
+
 
 project_list_view = ProjectListView.as_view()
 
