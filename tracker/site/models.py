@@ -2,7 +2,10 @@ from django.conf import settings
 from django.db import models
 from django_extensions.db.models import TimeStampedModel
 
+from djangae.contrib.consistency.signals import connect_signals
 from djangae.fields import RelatedSetField
+
+connect_signals()
 
 
 class Project(TimeStampedModel):

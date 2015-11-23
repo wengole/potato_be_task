@@ -38,6 +38,7 @@ INTERNAL_IPS = (
 
 INSTALLED_APPS = (
     'djangae', # Djangae needs to come before django apps in django 1.7 and above
+    'djangae.contrib.consistency',
     'django.contrib.admin',
     'django.contrib.auth',
     'djangae.contrib.gauth.datastore',
@@ -141,5 +142,19 @@ CRISPY_TEMPLATE_PACK = 'foundation-5'
 CRISPY_ALLOWED_TEMPLATE_PACKS = ('foundation-5', )
 
 AUTH_USER_MODEL = 'djangae.GaeUser'
+
+CONSISTENCY_CONFIG = {
+
+    # These defaults apply to every model, unless otherwise overriden.
+    # The values shown here are the default defaults (i.e. what you get if
+    # you don't set CONSISTENCY_CONFIG at all).
+    "defaults": {
+        "cache_on_creation": True,
+        "cache_on_modification": True,
+        "cache_time": 60,  # Seconds
+        "caches": ["django"],  # Where to store the cache.
+        "only_cache_matching": [],  # Optional filtering (see below)
+    },
+}
 
 from djangae.contrib.gauth.settings import *
